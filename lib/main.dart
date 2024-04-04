@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //PAGES
-import 'package:app1/pages/auth_page.dart';
+import 'package:app1/pages/login/auth_page.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';

@@ -1,6 +1,6 @@
 
 //PAGES
-import 'package:app1/pages/login_page.dart';
+import 'package:app1/pages/login/login_or_register_page.dart';
 import 'package:app1/pages/home_page.dart';
 
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class AuthPage extends StatelessWidget {
           }
           //user not logged in
           else {
-            return const LoginPage();
+            return const LoginOrRegisterPage();
           }
         }
       )
