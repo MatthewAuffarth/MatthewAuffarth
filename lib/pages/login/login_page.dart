@@ -5,7 +5,6 @@ import 'package:app1/components/button.dart';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/widgets.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -23,11 +22,11 @@ class _LoginPageState extends State<LoginPage> {
 final emailController = TextEditingController();
 final passwordController = TextEditingController();
 
-void invalidCredentialsMessage() {
+void showErrorMessage(String error) {
   showDialog(context: context, 
     builder: (context) {
-      return const AlertDialog(
-        title: Text('Please enter valid credentials'),
+      return  AlertDialog(
+        title: Text(error),
       );
     },
   );
@@ -59,7 +58,7 @@ void signUserIn() async {
   on FirebaseAuthException {
      //pop loading circle
      Navigator.pop(context);
-     invalidCredentialsMessage();
+     showErrorMessage("Please enter valid credentials");
   }  
 } //sign user in, end
 
@@ -120,7 +119,9 @@ void signUserIn() async {
             const SizedBox(height: 20),
             
             //sign in button
-            MyButton(onTap: signUserIn,),
+            MyButton(
+              text: "Sign in",
+              onTap: signUserIn,),
             
             const SizedBox(height: 20),
             
@@ -188,9 +189,6 @@ void signUserIn() async {
               ],
             
             ),
-            
-            
-            
             
               ], // end login page children widgets
             ),
