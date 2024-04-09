@@ -1,7 +1,7 @@
 
 //PAGES
 import 'package:app1/pages/login/login_or_register_page.dart';
-import 'package:app1/pages/home_page.dart';
+import 'package:app1/pages/reader.dart';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
