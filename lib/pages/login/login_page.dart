@@ -32,7 +32,6 @@ void showErrorMessage(String error) {
   );
 }
 
-
 // sign user in method
 void signUserIn() async {
   // loading circle
