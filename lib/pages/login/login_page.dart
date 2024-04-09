@@ -50,14 +50,18 @@ void signUserIn() async {
     email: emailController.text,
     password: passwordController.text);
     //pop loading circle
-    Navigator.pop(context);
+    if (mounted) {
+      Navigator.pop(context);
+    }
   } 
   
 
   on FirebaseAuthException {
      //pop loading circle
-     Navigator.pop(context);
-     showErrorMessage("Please enter valid credentials");
+     if(mounted){
+      Navigator.pop(context);
+      showErrorMessage("Please enter valid credentials");
+     }
   }  
 } //sign user in, end
 

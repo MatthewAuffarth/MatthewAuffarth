@@ -43,9 +43,23 @@ class ClickableText extends StatelessWidget {
               spacing: 8.0,
               children: words.map((word) => InkWell(
                 onTap: () {
-                  // Your action here, e.g., showing a snackbar with the clicked word
-                  ScaffoldMessenger.of(context).removeCurrentSnackBar();
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('You clicked "$word"')));
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title:  Text(word),
+                        content: Text('You clicked "$word"'),
+                        actions: <Widget>[
+                          TextButton(
+                            child: const Text('OK'),
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 },
                 child: Text(
                   word,

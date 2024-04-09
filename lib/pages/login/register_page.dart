@@ -55,7 +55,11 @@ void signUserUp() async {
       email: emailController.text,
       password: passwordController.text);
     // pop loading circle
-       Navigator.pop(context);
+       
+      if (mounted) {
+      Navigator.pop(context);
+      }
+    
     }
     else 
     {
@@ -71,8 +75,9 @@ void signUserUp() async {
 
   on FirebaseAuthException {
      //pop loading circle
-     Navigator.pop(context);
-     
+     if (mounted) {
+      Navigator.pop(context);
+    }   
   }  
 } //sign user in, end
 
